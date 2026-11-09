@@ -14,7 +14,7 @@ static std::string replaceAll(std::string s, std::string const& from, std::strin
 }
 
 class $modify(MultilineTextObject, TextGameObject) {
-	void updateTextObject(gd::string text, bool p1) {
+	void updateTextObject(std::string text, bool p1) {
 		std::string str = text;
 		auto token = Mod::get()->getSettingValue<std::string>("newline-token");
 		str = replaceAll(str, token, "\n");
