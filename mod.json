@@ -6,10 +6,10 @@
 		"mac": "2.2091",
 		"ios": "2.2091"
 	},
-	"id": "abdelahad.multiline-text",
+	"id": "AVtherix.multiline-text",
 	"name": "Multiline Text",
 	"version": "v1.0.0",
-	"developer": "Abdelahad",
+	"developer": "AVtherix",
 	"description": "Write multi-line text in text objects by typing a newline token.",
 	"tags": ["editor", "utility"],
 	"repository": "https://github.com/YOUR_USERNAME/YOUR_REPO",
