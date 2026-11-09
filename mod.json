@@ -3,16 +3,15 @@
 	"gd": {
 		"win": "2.2091",
 		"android": "2.2091",
-		"mac": "2.2091",
-		"ios": "2.2091"
+		"mac": "2.2091"
 	},
-	"id": "AVtherix.multiline-text",
+	"id": "avtherix.multiline-text",
 	"name": "Multiline Text",
 	"version": "v1.0.0",
 	"developer": "AVtherix",
 	"description": "Write multi-line text in text objects by typing a newline token.",
 	"tags": ["editor", "utility"],
-	"repository": "https://github.com/YOUR_USERNAME/YOUR_REPO",
+	"repository": "https://github.com/AVtherix/multiline-text-for-other-platforms",
 	"settings": {
 		"newline-token": {
 			"type": "string",
