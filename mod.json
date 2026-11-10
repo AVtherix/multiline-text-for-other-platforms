@@ -3,21 +3,23 @@
 	"gd": {
 		"win": "2.2091",
 		"android": "2.2091",
-		"mac": "2.2091"
+		"mac": "2.2091",
+		"ios": "2.2091"
 	},
 	"id": "avtherix.multiline-text",
 	"name": "Multiline Text",
 	"version": "v1.0.0",
 	"developer": "AVtherix",
-	"description": "Write multi-line text in text objects by typing a newline token.",
+	"description": "Text objects are stuck on one line? Type a token like \\n anywhere in the text and it becomes a real line break.",
 	"tags": ["editor", "utility"],
 	"repository": "https://github.com/AVtherix/multiline-text-for-other-platforms",
 	"settings": {
 		"newline-token": {
 			"type": "string",
 			"name": "Newline Token",
-			"description": "Whatever you type here becomes a new line in text objects. Default is a backslash followed by n.",
-			"default": "\\n"
+			"description": "Whatever you type here turns into a new line in text objects. The default is a backslash followed by n. You can use symbols too.",
+			"default": "\\n",
+			"filter": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{};:'\",.<>/?\\|~`"
 		}
 	}
 }
