@@ -1,49 +1,49 @@
-name: Build Binaries
+name: Build Geode Mod
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - "**"
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
 
 jobs:
   build:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        config:
-        - name: Windows
-          os: windows-latest
-        - name: macOS
-          os: macos-latest
-        - name: Android32
-          os: ubuntu-latest
-          target: Android32
-        - name: Android64
-          os: ubuntu-latest
-          target: Android64
-
-    name: ${{ matrix.config.name }}
-    runs-on: ${{ matrix.config.os }}
+        include:
+          - name: Windows
+            os: windows-latest
+            platform: win
+          - name: macOS
+            os: macos-15
+            platform: mac
+          - name: iOS
+            os: macos-15
+            platform: ios
+          - name: Android32
+            os: ubuntu-latest
+            platform: android32
+          - name: Android64
+            os: ubuntu-latest
+            platform: android64
 
     steps:
-    - uses: actions/checkout@v4
-
-    - name: Build the mod
-      uses: geode-sdk/build-geode-mod@main
-      with:
-        sdk: stable
-        combine: true
-        target: ${{ matrix.config.target }}
-
-  package:
-    name: Package builds
-    runs-on: ubuntu-latest
-    needs: ['build']
-    steps:
-      - uses: geode-sdk/build-geode-mod/combine@main
-        id: build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@v4
         with:
-          name: Build Output
-          path: ${{ steps.build.outputs.build-output }}
+          submodules: recursive
+
+      - name: Build Geode mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          platform: ${{ matrix.platform }}
+          sdk: v5.11.2
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.name }}
+          path: build/*.geode
