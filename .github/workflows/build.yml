@@ -18,12 +18,6 @@ jobs:
           - name: Windows
             os: windows-latest
             platform: win
-          - name: macOS
-            os: macos-15
-            platform: mac
-          - name: iOS
-            os: macos-15
-            platform: ios
           - name: Android32
             os: ubuntu-latest
             platform: android32
